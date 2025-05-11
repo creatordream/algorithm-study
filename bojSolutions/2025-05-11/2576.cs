@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 using System;
 
 namespace 백준
@@ -45,4 +42,3 @@ namespace 백준
         }
     }
 }
->>>>>>> 8f0ed635e6897dcbe142a4492d4d029ed093f823
