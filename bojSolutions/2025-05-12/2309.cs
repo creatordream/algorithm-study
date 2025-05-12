@@ -1,3 +1,4 @@
+//경우의 수 조합 이용
 using System;
 
 namespace 백준
