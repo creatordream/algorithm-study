@@ -13,7 +13,6 @@ namespace 백준
                 cnt[c - '0']++;
             }
 
-
             // 6/9는 뒤집어 쓸 수 있으므로 합쳐서 올림 나누기
             int total = cnt[6] + cnt[9];
             cnt[6] = (total + 1) / 2;
