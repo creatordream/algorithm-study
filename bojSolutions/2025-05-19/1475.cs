@@ -6,9 +6,13 @@ namespace 백준
         static void Main(string[] args) {
             string roomNum = Console.ReadLine();
             int[] cnt = new int[10];
-
-            foreach (char c in roomNum)
+            
+            for (int i = 0; i < roomNum.Length; i++)
+            {
+                char c = roomNum[i];
                 cnt[c - '0']++;
+            }
+
 
             // 6/9는 뒤집어 쓸 수 있으므로 합쳐서 올림 나누기
             int total = cnt[6] + cnt[9];
