@@ -1,23 +1,31 @@
 import os
 from datetime import date
 
-# ✔️ 여기만 매일 수정!
+# ✔️ 이 부분만 매일 수정
 problems = [
     ("10807", "개수 세기", "Bronze V"),
     ("2577", "숫자의 개수", "Bronze II"),
     ("1475", "방 번호", "Silver V")
 ]
 
-# 오늘 날짜로 자동 처리 (또는 직접 입력도 가능)
+# 오늘 날짜 자동 처리 (또는 수동 입력 가능)
 today = date.today().strftime("%Y-%m-%d")
-# today = "2025-05-18"  # 수동 날짜 설정 시 이 줄로 변경
+# today = "2025-05-18"  # 수동 입력하려면 이 줄 주석 해제
 
 boj_md_path = f"./boj/{today}.md"
 sol_dir = f"./bojSolutions/{today}"
 
+# 덮어쓰기 방지 확인
+if os.path.exists(boj_md_path):
+    confirm = input(f"⚠️ {boj_md_path} 이미 존재합니다. 덮어쓸까요? (y/n): ")
+    if confirm.lower() != 'y':
+        print("🚫 작업을 취소했습니다.")
+        exit()
+
+# 폴더 생성
 os.makedirs(sol_dir, exist_ok=True)
 
-# boj/날짜.md 작성
+# 마크다운 정리 파일 생성
 with open(boj_md_path, "w", encoding="utf-8") as f:
     f.write(f"# 📅 {today} 백준 풀이 정리\n\n")
     f.write("| 난이도 | 문제 번호 | 문제 이름 | 정답 코드 | 문제 해결 메모 |\n")
@@ -28,7 +36,7 @@ with open(boj_md_path, "w", encoding="utf-8") as f:
         memo_link = f"../../bojSolutions/{today}/{number}_memo.md"
         f.write(f"| {level} | {number} | [{title}]({url}) | [정답 코드]({code_link}) | [메모]({memo_link}) |\n")
 
-# bojSolutions 내부 파일들 생성
+# 메모 템플릿
 memo_template = """# 챕터
 
 ## 📝 문제 요약
@@ -44,3 +52,35 @@ memo_template = """# 챕터
 ## ✂️ 간략화 코드
 ```cs
 
+```
+
+## 🔍 간략화 포인트
+
+
+"""
+
+# 기본 C# 코드 템플릿
+cs_template = """using System;
+
+class Program
+{
+    static void Main()
+    {
+        // TODO: 여기에 문제 풀이 코드 작성
+    }
+}
+"""
+
+# 각 문제에 대해 파일 생성 (.cs, _memo.md)
+for number, _, _ in problems:
+    # 메모 파일
+    memo_path = os.path.join(sol_dir, f"{number}_memo.md")
+    if not os.path.exists(memo_path):
+        with open(memo_path, "w", encoding="utf-8") as f:
+            f.write(memo_template)
+    
+    # C# 코드 파일
+    cs_path = os.path.join(sol_dir, f"{number}.cs")
+    if not os.path.exists(cs_path):
+        with open(cs_path, "w", encoding="utf-8") as f:
+            f.write(cs_template)
