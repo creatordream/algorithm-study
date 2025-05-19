@@ -8,12 +8,13 @@ problems = [
     ("1475", "방 번호", "Silver V")
 ]
 
-# 오늘 날짜 자동 처리 (또는 수동 입력 가능)
+# 오늘 날짜 자동 처리
 today = date.today().strftime("%Y-%m-%d")
-# today = "2025-05-18"  # 수동 입력하려면 이 줄 주석 해제
+month_folder = today[:7]  # yyyy-mm 형식
 
-boj_md_path = f"./boj/{today}.md"
-sol_dir = f"./bojSolutions/{today}"
+# 경로 지정 수정
+boj_md_path = f"./boj/{month_folder}/{today}.md"
+sol_dir = f"./bojSolutions/{month_folder}/{today}"
 
 # 덮어쓰기 방지 확인
 if os.path.exists(boj_md_path):
@@ -23,6 +24,7 @@ if os.path.exists(boj_md_path):
         exit()
 
 # 폴더 생성
+os.makedirs(os.path.dirname(boj_md_path), exist_ok=True)
 os.makedirs(sol_dir, exist_ok=True)
 
 # 마크다운 정리 파일 생성
