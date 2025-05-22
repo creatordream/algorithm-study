@@ -3,9 +3,9 @@ from datetime import date
 
 # ✔️ 이 부분만 매일 수정
 problems = [
-    ("10807", "개수 세기", "Bronze V"),
-    ("2577", "숫자의 개수", "Bronze II"),
-    ("1475", "방 번호", "Silver V")
+    ("1406", "에디터", "Silver II"),
+    ("5397", "키로거", "Silver II"),
+    ("1158", "요세푸스 문제", "Silver IV")
 ]
 
 # 오늘 날짜 자동 처리
