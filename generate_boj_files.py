@@ -14,7 +14,7 @@ month_folder = today[:7]  # yyyy-mm 형식
 
 # 경로 지정 수정
 boj_md_path = f"./boj/{month_folder}/{today}.md"
-sol_dir = f"./bojSolutions/{month_folder}/{today}"
+sol_dir = f"./bojSolutions/{today}"
 
 # 덮어쓰기 방지 확인
 if os.path.exists(boj_md_path):
