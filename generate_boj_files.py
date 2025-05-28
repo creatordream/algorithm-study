@@ -3,9 +3,10 @@ from datetime import date
 
 # ✔️ 이 부분만 매일 수정
 problems = [
-    ("1406", "에디터", "Silver II"),
-    ("5397", "키로거", "Silver II"),
-    ("1158", "요세푸스 문제", "Silver IV")
+    ("10828", "스택", "Silver IV"),
+    ("10773", "제로", "Silver IV"),
+    ("1874", "스택 수열", "Silver II")
+    ("2493", "탑", "Gold V")
 ]
 
 # 오늘 날짜 자동 처리
