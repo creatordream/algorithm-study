@@ -11,6 +11,15 @@
 
 ## 스택
 
+Push()
+Pop()
+Peek()
+Count()
+Clear()
+Contains()
+ToArray()
+TrimExcess()
+GetEnumerator()
 
 ## 큐
 
